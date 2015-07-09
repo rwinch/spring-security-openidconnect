@@ -1,16 +1,15 @@
 package demo;
 
 import org.springframework.security.authentication.AbstractAuthenticationToken;
-import org.springframework.security.oauth2.common.OAuth2AccessToken;
 
 public class OAuth2AuthenticationToken extends AbstractAuthenticationToken {
 	
-	private OAuth2AccessToken token;
+	private String token;
 	
 	private Object details;
 
 	public OAuth2AuthenticationToken(
-			OAuth2AccessToken token, Object details) {
+			String token, Object details) {
 		super(null);
 		this.token = token;
 		this.details = details;

@@ -24,10 +24,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http
 			.addFilterBefore(oauthFilter(), UsernamePasswordAuthenticationFilter.class)
 			.exceptionHandling()
-				.authenticationEntryPoint(new OAuth2AuthenticationEntryPoint(config))
+//				.authenticationEntryPoint(new OAuth2AuthenticationEntryPoint(config))
 				.and()
 			.authorizeRequests()
-				.anyRequest().authenticated();
+				.anyRequest().authenticated()
+				.and()
+			.formLogin()
+				.loginPage("/login")
+				.permitAll();
 	}
 	
 	@Bean
